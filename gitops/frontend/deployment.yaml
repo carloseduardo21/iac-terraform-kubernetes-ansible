@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend-deployment
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend-deployment
+    spec:
+      containers:
+      - image: 459391715545.dkr.ecr.us-west-1.amazonaws.com/stopcar-application-production-frontend:latest
+        name: stopcar-application-production-frontend
+        ports:
+        - containerPort: 3000
+        resources: {}
+status: {}

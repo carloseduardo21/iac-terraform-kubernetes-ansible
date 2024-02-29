@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend-deployment
+  name: backend-service
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /backend
+spec:
+  ports:
+  - port: 32000
+    protocol: TCP
+    targetPort: 3333
+  selector:
+    app: backend-deployment
+  type: NodePort
+status:
+  loadBalancer: {}

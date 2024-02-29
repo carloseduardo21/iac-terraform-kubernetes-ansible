@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: admin-deployment
+  name: admin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: admin-deployment
+    spec:
+      containers:
+      - image: registry.gitlab.com/stopcar/admin:main
+        name: stopcar-application-production-admin
+        ports:
+        - containerPort: 3000
+        resources: {}
+status: {}

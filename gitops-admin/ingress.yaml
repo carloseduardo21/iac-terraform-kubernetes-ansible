@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stopcar-ingress
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: stopcar-admin-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-0b1cacce106332bbc,subnet-05e5c836da4755464
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-1:459391715545:certificate/6846f283-cc08-428a-9c4e-878c7d667e92
+    kubernetes.io/ingress.class: alb
+spec:
+  tls:
+  - hosts:
+    - admin.strongsoftwares.com.br
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: admin-service
+            port:
+              number: 32000

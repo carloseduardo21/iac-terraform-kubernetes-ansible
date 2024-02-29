@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend-deployment
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: backend-deployment
+    spec:
+      containers:
+      - image: 459391715545.dkr.ecr.us-west-1.amazonaws.com/stopcar-application-production-backend:latest
+        name: stopcar-application-production-backend
+        ports:
+        - containerPort: 3333
+        resources: {}
+status: {}

@@ -1,0 +1,9 @@
+resources:
+- admin/deployment.yaml
+- admin/service.yaml
+- ingress.yaml
+
+images:
+- name: registry.gitlab.com/stopcar/admin
+  newName: registry.gitlab.com/stopcar/admin
+  newTag: main

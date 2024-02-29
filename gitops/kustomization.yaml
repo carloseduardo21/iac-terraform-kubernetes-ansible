@@ -1,0 +1,14 @@
+resources:
+- frontend/deployment.yaml
+- frontend/service.yaml
+- backend/deployment.yaml
+- backend/service.yaml
+- ingress.yaml
+
+images:
+- name: 459391715545.dkr.ecr.us-west-1.amazonaws.com/stopcar-application-production-frontend
+  newName: 459391715545.dkr.ecr.us-west-1.amazonaws.com/stopcar-application-production-frontend
+  newTag: latest
+- name: 459391715545.dkr.ecr.us-west-1.amazonaws.com/stopcar-application-production-backend
+  newName: 459391715545.dkr.ecr.us-west-1.amazonaws.com/stopcar-application-production-backend
+  newTag: latest
